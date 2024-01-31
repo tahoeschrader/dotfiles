@@ -26,11 +26,12 @@
         };
       };
     in {
+    # Basic configuration: home-manager switch --flake flake.nix
       homeConfigurations."pooralaska" = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           system = "aarch64-darwin";
         };
-        modules = [ ./hosts/macmini/home.nix ];
+        modules = [ ./hosts/macmini ];
       };
     };
 }
