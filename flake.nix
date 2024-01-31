@@ -10,7 +10,7 @@
     };
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       # Global configuration for my systems
       globals = let baseName = "tahoes.dev";
@@ -22,16 +22,13 @@
         dotfilesRepo = "https://github.com/tahoeschrader/dotfiles";
         hostnames = {
           # Future Subdomains
-          # example = "example.${baseName}";
+          example = "example.${baseName}";
         };
       };
     in {
-    # Basic configuration: home-manager switch --flake flake.nix
-      homeConfigurations."pooralaska" = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-darwin";
-        };
-        modules = [ ./hosts/macmini ];
+      # Basic configuration: home-manager switch --flake .#macmini
+      homeConfigurations = {
+        macmini = import ./hosts/macmini { inherit inputs globals; };
       };
     };
 }
