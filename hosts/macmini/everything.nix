@@ -11,7 +11,7 @@
   # Packages directly installed into the default environment
   home.packages = with pkgs; [
     # Programming languages + toolchains
-   python3
+    python3
 
     # Package Managers
     bun
