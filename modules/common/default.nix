@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  imports = [  ];
+  imports = [ ./shell ];
 
   options = {
     user = lib.mkOption {

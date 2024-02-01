@@ -9,6 +9,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
   modules = [
     globals
     ../../modules/common
+    ../../modules/darwin
     ../macmini/everything.nix
   ];
 }
