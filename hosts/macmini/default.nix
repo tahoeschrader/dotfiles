@@ -11,5 +11,8 @@ inputs.home-manager.lib.homeManagerConfiguration {
     ../../modules/common
     ../../modules/darwin
     ../macmini/everything.nix
+    {
+      rust.enable = true;
+    }
   ];
 }

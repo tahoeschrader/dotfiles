@@ -11,16 +11,15 @@
   # Packages directly installed into the default environment
   home.packages = [
     # Programming languages + toolchains
-    pkgs.rustup
     pkgs.python3
-    
+
     # Package Managers
     pkgs.bun
     pkgs.fnm
     
-    # CLI tools
-    pkgs.eza
-    pkgs.bat
-    pkgs.k9s
+    # CLIS
+    pkgs.eza # better ls
+    pkgs.bat # better cat
+    pkgs.k9s # kubernetes cli
   ];
 }
