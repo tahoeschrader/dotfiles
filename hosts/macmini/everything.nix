@@ -9,17 +9,13 @@
   programs.home-manager.enable = true;
 
   # Packages directly installed into the default environment
-  home.packages = [
+  home.packages = with pkgs; [
     # Programming languages + toolchains
-    pkgs.python3
+   python3
 
     # Package Managers
-    pkgs.bun
-    pkgs.fnm
+    bun
+    fnm
     
-    # CLIS
-    pkgs.eza # better ls
-    pkgs.bat # better cat
-    pkgs.k9s # kubernetes cli
   ];
 }
