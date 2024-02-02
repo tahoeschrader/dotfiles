@@ -4,12 +4,13 @@
   programs.zsh = {
     enable = true;
     dotDir = ".config/zsh";
-    history.path = ".config/zsh/.zsh_history";
+    history.path = "$ZDOTDIR/.zsh_history";
     shellAliases = {
       la = "eza -a --icons";
       ll = "eza -lah --icons";
       ls = "eza --color=auto";
       cat = "bat";
+      macmini = "home-manager switch --flake .#macmini";
     };
       
     plugins = [

@@ -3,17 +3,21 @@
   imports = [ ./shell ./programming ];
 
   config.home.stateVersion = "23.11";
-  config.nix = {
-      # Not sure why I need to add this,
-      # but it lets me write extraOptions
-      package = pkgs.nix;
 
-      # Enable features in Nix commands
+  # Not sure why I need to add this (package = pkgs.nix)
+  config.nix = {
+      package = pkgs.nix;
       extraOptions = ''
         experimental-features = nix-command flakes
       '';
   };
+
+  # Define options
   options = {
+    # Install packages to /etc/profiles instead of ~/.nix-profile
+    home-manager.useUserPackages = true; # doesn't seem to work
+
+    # Not sure what the following are used for
     user = lib.mkOption {
       type = lib.types.str;
       description = "Primary user of the system";
