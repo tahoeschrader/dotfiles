@@ -14,6 +14,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     {
       rust.enable = true;
       javascript.enable = true;
+      python.enable = true;
     }
   ];
 }
