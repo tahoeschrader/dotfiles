@@ -10,8 +10,9 @@ inputs.home-manager.lib.homeManagerConfiguration {
     globals
     ../../modules/common
     ../../modules/darwin
-    ../macmini/everything.nix
     {
+      home.username = "pooralaska";
+      home.homeDirectory = "/Users/pooralaska";
       rust.enable = true;
       javascript.enable = true;
       python.enable = true;

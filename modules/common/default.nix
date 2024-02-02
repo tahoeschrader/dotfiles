@@ -2,14 +2,15 @@
 
   imports = [ ./shell ./programming ];
 
-  config.home.stateVersion = "23.11";
-
-  # Not sure why I need to add this (package = pkgs.nix)
-  config.nix = {
-      package = pkgs.nix;
+  config = {
+    home.stateVersion = "23.11";
+    programs.home-manager.enable = true;
+    nix = {
+      package = pkgs.nix; # Not sure why I need to add this
       extraOptions = ''
         experimental-features = nix-command flakes
       '';
+    };
   };
 
   # Define options
