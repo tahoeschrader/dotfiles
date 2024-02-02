@@ -13,6 +13,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
     ../macmini/everything.nix
     {
       rust.enable = true;
+      javascript.enable = true;
     }
   ];
 }

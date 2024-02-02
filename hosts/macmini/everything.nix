@@ -12,10 +12,5 @@
   home.packages = with pkgs; [
     # Programming languages + toolchains
     python3
-
-    # Package Managers
-    bun
-    fnm
-    
   ];
 }
