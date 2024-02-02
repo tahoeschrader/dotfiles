@@ -17,6 +17,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
       javascript.enable = true;
       python.enable = true;
       helix.enable = true;
+      vscode.enable = true;
     }
   ];
 }
