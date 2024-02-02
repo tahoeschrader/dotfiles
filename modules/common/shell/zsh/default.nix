@@ -9,7 +9,7 @@
       la = "eza -a --icons";
       ll = "eza -lah --icons";
       ls = "eza --color=auto";
-      cat = "bat --style=plain";
+      cat = "bat";
     };
       
     plugins = [

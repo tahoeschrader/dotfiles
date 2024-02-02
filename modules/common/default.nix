@@ -2,6 +2,17 @@
 
   imports = [ ./shell ./programming ];
 
+  config.home.stateVersion = "23.11";
+  config.nix = {
+      # Not sure why I need to add this,
+      # but it lets me write extraOptions
+      package = pkgs.nix;
+
+      # Enable features in Nix commands
+      extraOptions = ''
+        experimental-features = nix-command flakes
+      '';
+  };
   options = {
     user = lib.mkOption {
       type = lib.types.str;
