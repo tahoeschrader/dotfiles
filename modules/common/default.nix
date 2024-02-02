@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }: {
 
-  imports = [ ./shell ./programming ];
+  imports = [ ./shell ./programming ./applications ];
 
   config = {
     home.stateVersion = "23.11";
