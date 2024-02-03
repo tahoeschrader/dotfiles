@@ -7,6 +7,7 @@
       eza # better ls
       bat # better cat
       k9s # kubernetes cli
+      lazygit # fun git UI
     ];
 
   };
