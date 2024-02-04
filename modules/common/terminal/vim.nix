@@ -18,6 +18,6 @@
         autocmd InsertEnter * set nocursorline
         autocmd InsertLeave * set cursorline
       '';
-  };
+    };
   };
 }

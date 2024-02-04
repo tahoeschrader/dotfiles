@@ -10,6 +10,7 @@
         #vadimcn.vscode-lldb
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
+        #platformio
       ];
     };
   };
