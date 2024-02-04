@@ -4,6 +4,8 @@
     ./utilities.nix
     ./tmux.nix
     ./nnn.nix
-    ./zsh
+    ./helix.nix
+    ./vim.nix
+    ./zsh.nix
   ];
 }
