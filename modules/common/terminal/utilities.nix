@@ -6,9 +6,10 @@
     home.packages = with pkgs; [
       eza # better ls
       bat # better cat
-      k9s # kubernetes cli
-      lazygit # fun git UI
-      lazydocker # fun docker UI
+      k9s # kubernetes TUI
+      lazygit # fun git TUI
+      lazydocker # fun docker TUI
+      #gobang # fun sql TUI -- currently broken on the version of rust I have
       nmap # scan network ip addresses
     ];
 
