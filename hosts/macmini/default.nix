@@ -19,6 +19,11 @@ inputs.home-manager.lib.homeManagerConfiguration {
       helix.enable = true;
       vscode.enable = true;
       vim.enable = true;
+      zsh.enable = true;
+      nnn.enable = true;
+      tmux.enable = true;
+      starship.enable = true;
+      utilities.enable = true;
     }
   ];
 }

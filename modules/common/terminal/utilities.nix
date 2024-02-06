@@ -1,7 +1,8 @@
-# Useful terminal utilities and CLIs
-{ config, pkgs, ... }: {
+# Useful terminal utilities and CLIs that I'm not doing further cusotmizations on
+{ config, pkgs, lib, ... }: {
 
-  config = {
+  options.utilities.enable = lib.mkEnableOption "Extra terminal utilities.";
+  config = lib.mkIf config.utilities.enable {
 
     home.packages = with pkgs; [
       eza # better ls
