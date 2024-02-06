@@ -24,6 +24,7 @@ inputs.home-manager.lib.homeManagerConfiguration {
       tmux.enable = true;
       starship.enable = true;
       utilities.enable = true;
+      fonts.enable = true;
     }
   ];
 }
