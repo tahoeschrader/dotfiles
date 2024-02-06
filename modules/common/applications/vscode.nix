@@ -23,6 +23,11 @@
         golang.go
         bbenoist.nix
       ];
+      userSettings = {
+        "files.autoSave" = "off";
+        "[nix]"."editor.tabSize" = 2;
+        "terminal.integrated.fontFamily" = "'FiraCode Nerd Font Mono'";
+      };
     };
   };
 }
