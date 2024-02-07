@@ -15,7 +15,10 @@
   # Basic configuration: home-manager switch --flake .#macmini
   {
     homeConfigurations = {
-      macmini = import ./hosts/macmini { inherit inputs; };
+      macmini = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs { system = "aarch64-darwin";};
+        modules = [ ./modules ];
+      };
     };
   };
 }

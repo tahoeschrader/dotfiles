@@ -1,5 +1,9 @@
-{ pkgs, ... }: {
-  # Alacritty
+{ pkgs, lib, ... }: {
+  # Unfree packages I still want to use nix for
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "spotify"
+  ];
+           
   programs.alacritty = {
     enable = true;
     settings = {
@@ -109,6 +113,9 @@
   
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;[
+    # Applications
+    spotify # probably want to lock this behind an enable option
+    
     # Font stuff
     noto-fonts-cjk-sans
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
@@ -123,7 +130,7 @@
     # Rust stuff
     rustup
     
-    # Helix language servers
+    # Helix language servers - TODO: make dependent on helix enabale
     llvmPackages.lldb # debugger
     texlab # latex and bibtex lsp
     yaml-language-server
@@ -139,13 +146,14 @@
     dockerfile-language-server-nodejs
     
     # Misc. TUIs
-    eza # better ls
-    bat # better cat
-    k9s # kubernetes TUI
-    lazygit # fun git TUI
-    lazydocker # fun docker TUI
-    #gobang # fun sql TUI -- currently broken on the version of rust I have
-    nmap # scan network ip addresses
+    eza # ls
+    bat # cat
+    k9s # kubernetes
+    lazygit # git
+    lazydocker # docker
+    #gobang # sql -- currently broken on stable rust
+    nmap # scans network ip addresses
+    ncspot # spotify
   ];
 
 }
