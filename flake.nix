@@ -8,17 +8,22 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    alacritty-theme.url = "github:alexghr/alacritty-theme.nix";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs:
+  outputs = { nixpkgs, home-manager, alacritty-theme, ... }@inputs:
+    {
+      homeConfigurations = {
+        #nixpkgs.overlays = [ alacritty-theme.overlays.default ]; # doesn't work
 
-  # Basic configuration: home-manager switch --flake .#macmini
-  {
-    homeConfigurations = {
-      macmini = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs { system = "aarch64-darwin";};
-        modules = [ ./modules ];
+        # Run with `home-manager switch --flake .#macmini`
+        macmini = home-manager.lib.homeManagerConfiguration {
+          pkgs = import nixpkgs {
+            system = "aarch64-darwin";
+            overlays = [ alacritty-theme.overlays.default ]; # had to put it here
+          };
+          modules = [ ./modules ];
+        };
       };
     };
-  };
 }

@@ -3,11 +3,11 @@
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "spotify"
   ];
-           
+
   programs.alacritty = {
     enable = true;
     settings = {
-
+      import = [ pkgs.alacritty-theme.gruvbox_material ];
       mouse = { hide_when_typing = true; };
 
       font = let fontname = "FiraCode Nerd Font"; in
@@ -17,6 +17,10 @@
           italic = { family = fontname; style = "ExtraLight"; };
           size = 15;
         };
+      window = {
+        # Need to figure out a better way for dimensions and placement of apps
+        dimensions = {columns = 230; lines = 64; };
+      };
     };
   };
   
