@@ -21,6 +21,9 @@
         # Need to figure out a better way for dimensions and placement of apps
         dimensions = {columns = 230; lines = 64; };
       };
+      cursor = {
+        style = {shape = "Beam"; };
+      };
     };
   };
   
