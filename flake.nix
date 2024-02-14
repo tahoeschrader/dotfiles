@@ -14,13 +14,12 @@
   outputs = { nixpkgs, home-manager, alacritty-theme, ... }@inputs:
     {
       homeConfigurations = {
-        #nixpkgs.overlays = [ alacritty-theme.overlays.default ]; # doesn't work
 
         # Run with `home-manager switch --flake .#macmini`
         macmini = home-manager.lib.homeManagerConfiguration {
           pkgs = import nixpkgs {
             system = "aarch64-darwin";
-            overlays = [ alacritty-theme.overlays.default ]; # had to put it here
+            overlays = [ alacritty-theme.overlays.default ];
           };
           modules = [ ./modules ];
         };

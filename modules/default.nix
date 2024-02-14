@@ -12,9 +12,9 @@
     programs.home-manager.enable = true;
     nix = {
       package = pkgs.nix; # Not sure why I need to add this
-      extraOptions = ''
-        experimental-features = nix-command flakes
-      '';
+      settings = {
+        experimental-features = [ "nix-command" "flakes" ];
+      };
     };
   };
 }
