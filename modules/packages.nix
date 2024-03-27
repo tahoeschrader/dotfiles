@@ -120,8 +120,9 @@
   
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;[
-    # Applications
-    spotify # probably want to lock this behind an enable option
+    # Applications (might want to lock these behind options)
+    spotify
+    # rpi-imager # currently broken
     
     # Font stuff
     noto-fonts-cjk-sans
