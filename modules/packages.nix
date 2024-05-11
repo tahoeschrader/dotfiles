@@ -133,7 +133,7 @@
     bun # alternative javascript runtime written in rust
     
     # Python stuff
-    python3
+    (python3.withPackages (ps: with ps; [pip])) # from tristan 
     
     # Rust stuff
     rustup
