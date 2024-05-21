@@ -87,7 +87,9 @@
       ll = "eza -lah --icons";
       ls = "eza --color=auto";
       cat = "bat";
-      macmini = "home-manager switch --flake .#macmini";
+      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini";
+      notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
+      projects = "cd ~/projects; ls";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
