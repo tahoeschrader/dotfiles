@@ -54,6 +54,7 @@
   };
   
   programs.tmux = {
+    # thinking of doing zellij instead
     enable = true;
     extraConfig = '' # put plug-ins here
     '';
@@ -124,23 +125,19 @@
   home.packages = with pkgs;[
     # Applications (might want to lock these behind options)
     spotify
-    # rpi-imager # currently broken
     
     # Font stuff
     noto-fonts-cjk-sans
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     
-    # Javascript stuff
+    # Programming languages, etc.
     fnm # version manager for the node.js runtime
     bun # alternative javascript runtime written in rust
-    
-    # Python stuff
-    (python3.withPackages (ps: with ps; [pip])) # from tristan 
-    
-    # Rust stuff
+    (python3.withPackages (ps: with ps; [pip]))
     rustup
+    go
     
-    # Helix language servers - TODO: make dependent on helix enabale
+    # Language servers - TODO: make dependent on helix enabale
     llvmPackages.lldb # debugger
     texlab # latex and bibtex lsp
     yaml-language-server
@@ -161,7 +158,6 @@
     k9s # kubernetes
     lazygit # git
     lazydocker # docker
-    #gobang # sql -- currently broken on stable rust
     nmap # scans network ip addresses
     ncspot # spotify
   ];
