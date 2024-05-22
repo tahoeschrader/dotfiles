@@ -1,8 +1,6 @@
 { pkgs, lib, ... }: {
-  # Unfree packages I still want to use nix for
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "spotify"
-  ];
+  # Allow unfree
+  nixpkgs.config.allowUnfree = true;
 
   programs.alacritty = {
     enable = true;
@@ -52,12 +50,14 @@
       battery.disabled = true; # Don't use battery since I'm not on laptops
     };
   };
-  
-  programs.tmux = {
-    # thinking of doing zellij instead
+
+  programs.zellij = {
     enable = true;
-    extraConfig = '' # put plug-ins here
-    '';
+    settings = {
+      theme = "gruvbox";
+      # can layout be moved to a different folder?
+      layout_dir = "${./layouts}";
+    };
   };
   
   programs.vim = {
@@ -125,6 +125,17 @@
   home.packages = with pkgs;[
     # Applications (might want to lock these behind options)
     spotify
+    zoom-us
+    qbittorrent
+    iina
+    discord
+    audacity
+    docker
+
+    # Applications (currently marked as broken)
+    # calibre
+    # rpi-imager
+    # anki
     
     # Font stuff
     noto-fonts-cjk-sans
