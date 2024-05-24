@@ -91,6 +91,8 @@
       macmini = "home-manager switch --flake ~/projects/dotfiles#macmini";
       notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       projects = "cd ~/projects; ls";
+      alexandria = "cd ~/projects/alexandria";
+      rustdev = "zellij -l rust-dev";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
