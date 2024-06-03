@@ -144,7 +144,7 @@
     (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
     
     # Programming languages, etc.
-    fnm # version manager for the node.js runtime
+    nodejs_20
     bun # alternative javascript runtime written in rust
     (python3.withPackages (ps: with ps; [pip]))
     rustup
@@ -173,6 +173,7 @@
     lazydocker # docker
     nmap # scans network ip addresses
     ncspot # spotify
+    unrar
   ];
 
 }
