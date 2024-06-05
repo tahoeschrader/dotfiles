@@ -93,6 +93,7 @@
       projects = "cd ~/projects; ls";
       alexandria = "cd ~/projects/alexandria";
       rustdev = "zellij -l rust-dev";
+      dev = "zellij -l dev";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
