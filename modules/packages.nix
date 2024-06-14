@@ -91,9 +91,17 @@
       macmini = "home-manager switch --flake ~/projects/dotfiles#macmini";
       notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       projects = "cd ~/projects; ls";
-      alexandria = "cd ~/projects/alexandria";
       rustdev = "zellij -l rust-dev";
       dev = "zellij -l dev";
+      alexandria = "cd ~/projects/alexandria; zellij -l rust-dev -s alexandria";
+      backbone = "cd ~/projects/backbone; zellij -l dev -s backbone";
+      bunkbed = "cd ~/projects/bunkbed.tech; zellij -l dev -s bunkbed";
+      calligraful = "cd ~/projects/calligraful; zellij -l dev -s calligraful";
+      dotfiles = "cd ~/projects/dotfiles; zellij -l dev -s dotfiles";
+      immerser = "cd ~/projects/immerser; zellij -l rust-dev -s immerser";
+      practice = "cd ~/projects/practice; zellij -l dev -s practice";
+      resume = "cd ~/projects/resume; zellij -l dev -s resume";
+      squadmaker = "cd ~/projects/squadmaker; zellij -l dev -s squadmaker";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
@@ -152,17 +160,19 @@
     go
     
     # Language servers - TODO: make dependent on helix enabale
-    llvmPackages.lldb # debugger
-    texlab # latex and bibtex lsp
+    llvmPackages.lldb
+    delve
+    texlab
     yaml-language-server
-    taplo # toml lsp
+    taplo
     pyright # python lsp
-    nil # nix lsp
-    marksman # markdown lsp
-    gopls # go lsp
+    nil
+    marksman
+    gopls
     ansible-language-server
     terraform-ls
-    nodePackages.bash-language-server
+    nodePackages_latest.bash-language-server
+    nodePackages_latest.typescript-language-server
     vscode-langservers-extracted
     dockerfile-language-server-nodejs
     
