@@ -98,7 +98,7 @@
       bunkbed = "cd ~/projects/bunkbed.tech; zellij -l dev -s bunkbed";
       calligraful = "cd ~/projects/calligraful; zellij -l dev -s calligraful";
       dotfiles = "cd ~/projects/dotfiles; zellij -l dev -s dotfiles";
-      immerser = "cd ~/projects/immerser; zellij -l rust-dev -s immerser";
+      immerser = "cd ~/projects/immerser; zellij -l dev -s immerser";
       practice = "cd ~/projects/practice; zellij -l dev -s practice";
       resume = "cd ~/projects/resume; zellij -l dev -s resume";
       squadmaker = "cd ~/projects/squadmaker; zellij -l dev -s squadmaker";
@@ -106,6 +106,8 @@
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
       export PATH="$PATH:/Users/pooralaska/Library/Application Support/JetBrains/Toolbox/scripts"
+      export EDITOR="/Users/pooralaska/.nix-profile/bin/hx"
+      export VISUAL="/Users/pooralaska/.nix-profile/bin/hx"
     '';
 
     plugins = [
