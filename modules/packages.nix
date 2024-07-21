@@ -138,7 +138,6 @@
   home.packages = with pkgs;[
     # Applications (might want to lock these behind options)
     spotify
-    zoom-us
     qbittorrent
     iina
     discord
