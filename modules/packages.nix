@@ -57,6 +57,7 @@
       theme = "gruvbox";
       # can layout be moved to a different folder?
       layout_dir = "${./layouts}";
+      window.option_as_alt = "Both";
     };
   };
   
@@ -93,19 +94,20 @@
       projects = "cd ~/projects; ls";
       rustdev = "zellij -l rust-dev";
       dev = "zellij -l dev";
-      alexandria = "cd ~/projects/alexandria; zellij -l rust-dev -s alexandria";
-      backbone = "cd ~/projects/backbone; zellij -l dev -s backbone";
-      bunkbed = "cd ~/projects/bunkbed.tech; zellij -l dev -s bunkbed";
-      calligraful = "cd ~/projects/calligraful; zellij -l dev -s calligraful";
-      dotfiles = "cd ~/projects/dotfiles; zellij -l dev -s dotfiles";
-      immerser = "cd ~/projects/immerser; zellij -l dev -s immerser";
-      practice = "cd ~/projects/practice; zellij -l dev -s practice";
-      resume = "cd ~/projects/resume; zellij -l dev -s resume";
-      squadmaker = "cd ~/projects/squadmaker; zellij -l dev -s squadmaker";
+      alexandria = "cd ~/projects/alexandria; zellij-start alexandria alexandria";
+      backbone = "cd ~/projects/backbone; zellij-start backbone dev";
+      bunkbed = "cd ~/projects/bunkbed.tech; zellij-start bunkbed dev";
+      calligraful = "cd ~/projects/calligraful; zellij-start calligraful dev";
+      dotfiles = "cd ~/projects/dotfiles; zellij-start dotfiles dev";
+      immerser = "cd ~/projects/immerser; zellij-start immerser dev";
+      practice = "cd ~/projects/practice; zellij-start practice dev";
+      resume = "cd ~/projects/resume; zellij-start resume dev";
+      squadmaker = "cd ~/projects/squadmaker; zellij-start squadmaker dev";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
       export PATH="$PATH:/Users/pooralaska/Library/Application Support/JetBrains/Toolbox/scripts"
+      export PATH="$PATH:$HOME/.config/zellij"
       export EDITOR="/Users/pooralaska/.nix-profile/bin/hx"
       export VISUAL="/Users/pooralaska/.nix-profile/bin/hx"
     '';

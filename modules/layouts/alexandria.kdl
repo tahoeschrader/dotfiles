@@ -1,0 +1,70 @@
+layout {
+    default_tab_template {
+        // the default zellij tab-bar and status bar plugins
+        pane size=1 borderless=true {
+            plugin location="zellij:tab-bar"
+        }
+        children
+        pane size=2 borderless=true {
+            plugin location="zellij:status-bar"
+        }
+    }
+    tab name="develop" focus=true {
+        pane split_direction="vertical" {
+            pane size="20%" name="files" {
+                command "nnn"
+            }
+            pane size="80%" name="edit" focus=true {
+                command "hx"
+                args "src/app.html"
+            }
+        }
+        pane size=4 name="terminal"
+    }
+    tab name="test"{
+        pane split_direction="vertical" {
+            pane name="readme" {
+                command "bat"
+                args "README.md"
+            }
+            pane split_direction="horizontal" {
+                cargo { args "check"; }
+                cargo { args "run"; }
+                cargo { args "test"; }
+            }
+        }
+    }
+    tab name="build" {
+        pane split_direction="vertical" {
+            pane name="postgres" {
+                command "docker"
+                args "compose" "up" "--b"
+                start_suspended true
+            }
+            pane split_direction="horizontal" {
+                pane name="docker" {
+                    command "lazydocker"
+                }
+                bun {args "run" "tauri" "build";}
+                bun {args "run" "tauri" "dev";}
+            }
+        }
+    }
+    tab name="git" {
+        pane {
+            command "lazygit"
+        }
+        pane size=4 name="terminal"
+    }
+    tab name="terminal" {
+        pane
+    }
+    pane_template name="cargo" {
+        command "cargo"
+        start_suspended true
+    }
+    pane_template name="bun" {
+        command "bun"
+        start_suspended true
+    }
+}

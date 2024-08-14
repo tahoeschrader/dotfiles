@@ -9,6 +9,10 @@
       if pkgs.stdenv.isDarwin
       then "/Users/${config.home.username}"
       else "/home/${config.home.username}";
+    home.file.".config/zellij/zellij-start" = {
+      source = ../scripts/zellij_start.sh;
+      executable = true;
+    };
     programs.home-manager.enable = true;
     nix = {
       package = pkgs.nix; # Not sure why I need to add this
