@@ -57,7 +57,7 @@ layout {
         pane size=4 name="terminal"
     }
     tab name="terminal" {
-        pane
+        pane name="etc."
     }
     pane_template name="cargo" {
         command "cargo"
