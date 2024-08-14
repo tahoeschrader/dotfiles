@@ -189,20 +189,4 @@
     unrar
   ];
 
-  # Start the docker daemon
-  launchd.agents.docker = {
-    enable = true;
-    config = {
-      ProgramArguments = [
-        "${pkgs.docker}/bin/docker"
-        "daemon"
-        "-H"
-        "unix:///var/run/docker.sock"
-      ];
-      KeepAlive = true;
-      Label = "com.docker.agent";
-      RunAtLoad = true;
-    };
-  };
-
 }
