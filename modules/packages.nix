@@ -89,7 +89,7 @@
       ll = "eza -lah --icons";
       ls = "eza --color=auto";
       cat = "bat";
-      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini";
+      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; exec zsh";
       notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       projects = "cd ~/projects; ls";
       rustdev = "zellij -l rust-dev";
@@ -160,7 +160,6 @@
     nodejs_20
     bun # alternative javascript runtime written in rust
     (python3.withPackages (ps: with ps; [pip]))
-    rustup
     go
     
     # Language servers - TODO: make dependent on helix enabale
