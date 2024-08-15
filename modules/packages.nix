@@ -108,8 +108,10 @@
       # Added by Toolbox App
       export PATH="$PATH:/Users/pooralaska/Library/Application Support/JetBrains/Toolbox/scripts"
       export PATH="$PATH:$HOME/.config/zellij"
+      export PATH="$PATH:$HOME/.config/zsh"
       export EDITOR="/Users/pooralaska/.nix-profile/bin/hx"
       export VISUAL="/Users/pooralaska/.nix-profile/bin/hx"
+      export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
     '';
 
     plugins = [
@@ -138,6 +140,8 @@
   
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;[
+    pkg-config
+  
     # Applications (might want to lock these behind options)
     spotify
     qbittorrent

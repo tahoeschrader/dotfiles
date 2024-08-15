@@ -1,6 +1,6 @@
 { pkgs, ... } : {
   home.packages = with pkgs;[
-    (fenix.complete.withComponents [
+    (fenix.stable.withComponents [
       "cargo"
       "clippy"
       "rust-src"

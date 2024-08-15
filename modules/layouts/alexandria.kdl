@@ -45,8 +45,10 @@ layout {
                 pane name="docker" {
                     command "lazydocker"
                 }
-                bun {args "run" "tauri" "build";}
-                bun {args "run" "tauri" "dev";}
+                pane name="set DATABASE_URL" {
+                    command "alexandria-run"
+                    start_suspended true
+                }
             }
         }
     }
@@ -63,8 +65,8 @@ layout {
         command "cargo"
         start_suspended true
     }
-    pane_template name="bun" {
-        command "bun"
+    pane_template name="bunx" {
+        command "bunx"
         start_suspended true
     }
 }

@@ -17,8 +17,9 @@
 
   outputs = { nixpkgs, home-manager, alacritty-theme, fenix, ... }@inputs:
     {
-      #packages.aarch64-darwin.default = fenix.packages.aarch64-darwin.minimal.toolchain;
-      homeConfigurations = {
+       #packages.aarch64-darwin.default = fenix.packages.aarch64-darwin.default.toolchain;
+      
+       homeConfigurations = {
 
         # Run with `home-manager switch --flake .#macmini`
         macmini = home-manager.lib.homeManagerConfiguration {

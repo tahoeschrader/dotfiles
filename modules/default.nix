@@ -9,9 +9,15 @@
       if pkgs.stdenv.isDarwin
       then "/Users/${config.home.username}"
       else "/home/${config.home.username}";
-    home.file.".config/zellij/zellij-start" = {
-      source = ../scripts/zellij_start.sh;
-      executable = true;
+    home.file = {
+      ".config/zellij/zellij-start" = {
+        source = ../scripts/zellij_start.sh;
+        executable = true;
+      };
+      ".config/zsh/alexandria-run" = {
+        source = ../scripts/alexandria_run.sh;
+        executable = true;
+      };
     };
     programs.home-manager.enable = true;
     nix = {
