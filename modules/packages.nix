@@ -148,8 +148,6 @@
     iina
     discord
     audacity
-    docker
-    docker-compose
 
     # Applications (currently marked as broken)
     # calibre
@@ -183,7 +181,7 @@
     vscode-langservers-extracted
     dockerfile-language-server-nodejs
     
-    # Misc. TUIs
+    # Misc. TUIs and CLIs
     eza # ls
     bat # cat
     k9s # kubernetes
@@ -192,6 +190,7 @@
     nmap # scans network ip addresses
     ncspot # spotify
     unrar
+    awscli2
   ];
 
 }
