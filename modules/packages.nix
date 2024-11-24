@@ -97,9 +97,7 @@
       alexandria = "cd ~/projects/alexandria; zellij-start alexandria alexandria";
       backbone = "cd ~/projects/backbone; zellij-start backbone dev";
       bunkbed = "cd ~/projects/bunkbed.tech; zellij-start bunkbed dev";
-      calligraful = "cd ~/projects/calligraful; zellij-start calligraful dev";
       dotfiles = "cd ~/projects/dotfiles; zellij-start dotfiles dev";
-      immerser = "cd ~/projects/immerser; zellij-start immerser dev";
       practice = "cd ~/projects/practice; zellij-start practice dev";
       resume = "cd ~/projects/resume; zellij-start resume dev";
       squadmaker = "cd ~/projects/squadmaker; zellij-start squadmaker dev";
@@ -145,15 +143,13 @@
   
     # Applications (might want to lock these behind options)
     spotify
-    qbittorrent
-    iina
-    discord
     audacity
 
     # Applications (currently marked as broken)
     # calibre
     # rpi-imager
     # anki
+    # discord
     
     # Font stuff
     noto-fonts-cjk-sans

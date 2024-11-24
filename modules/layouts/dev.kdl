@@ -24,7 +24,6 @@ layout {
         pane {
             command "lazygit"
         }
-        pane size=4 name="terminal"
     }
     tab name="terminal" {
         pane
