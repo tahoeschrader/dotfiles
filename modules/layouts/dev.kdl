@@ -19,7 +19,6 @@ layout {
                 args "README.md"
             }
         }
-        pane size=4 name="terminal"
     }
     tab name="git" {
         pane {

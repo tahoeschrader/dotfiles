@@ -19,7 +19,6 @@ layout {
                 args "src/main.rs"
             }
         }
-        pane size=4 name="terminal"
     }
     tab name="test"{
         pane split_direction="vertical" {
