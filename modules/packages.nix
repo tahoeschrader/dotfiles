@@ -112,6 +112,7 @@
       export EDITOR="/Users/pooralaska/.nix-profile/bin/hx"
       export VISUAL="/Users/pooralaska/.nix-profile/bin/hx"
       export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
+      export PATH="/Library/TeX/texbin:$PATH"
     '';
 
     plugins = [
