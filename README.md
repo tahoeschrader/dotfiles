@@ -1,5 +1,9 @@
 # dotfiles
+
 A place to store all my home and system configurations.
+
+Heavily borrowing ideas/formatting from my brother:
+- https://github.com/schradert/dotfiles
 
 ## After updating MacOS
 
@@ -11,13 +15,15 @@ if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
 fi
 ```
 
-## Attributes
-Heavily borrowing ideas/formatting from the following:
-- https://github.com/schradert/dotfiles
-
 ## TODO
-- SSH (secrets?)
-- GIT (secrets?)
+
+- SSH profiels (secrets?)
+- GIT profiles (secrets?)
 - Figure out how to get nix to ensure cargo installs `tpi` and `trunk` globally
-- Make configurations for my other clients (thinkcentre, rasperry pi, etc.)
-- Setup zellij templates
+- Setup custom zellij templates for projects as I go and develop for them
+
+## Given up tasks for now
+
+- Adding my other computers
+- Moving other programs to home manager (Docker, LaTeX, Anki, Brave, etc.)
+
