@@ -12,6 +12,7 @@
         'Noto Sans CJK JP',
       }
       config.font_size = 15.0
+      config.max_fps = 144;
       config.front_end = 'WebGpu'
 
       return config
