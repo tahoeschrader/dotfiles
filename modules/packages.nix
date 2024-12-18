@@ -1,7 +1,6 @@
-{ pkgs, lib, config,  ... }: {
-  # Allow unfree
-  nixpkgs.config.allowUnfree = true;
-
+{ pkgs, lib,  ... }: {
+  # TODO: put modules behind on/off flags based on device being used
+  
   programs.wezterm = {
     enable = true;
   };
@@ -10,7 +9,6 @@
     enable = true;
     languages = {
       language = [
-        # Change default language server for python
         {
           name = "python";
           language-servers = ["pyright"];
@@ -28,7 +26,7 @@
   programs.starship = {
     enable = true;
     settings = {
-      battery.disabled = true; # Don't use battery since I'm not on laptops
+      battery.disabled = true; # don't use battery since I'm not on laptops
     };
   };
 
@@ -36,7 +34,7 @@
     enable = true;
     settings = {
       theme = "gruvbox";
-      # can layout be moved to a different folder?
+      # TODO: can/should the layouts be moved to the parent folder?
       layout_dir = "${./layouts}";
       window.option_as_alt = "Both";
     };
@@ -44,7 +42,6 @@
   
   programs.vim = {
     enable = true;
-    plugins = with pkgs.vimPlugins; [ ];
     settings = { ignorecase = true; };
     extraConfig = ''
       set mouse=a
@@ -60,7 +57,8 @@
       autocmd InsertLeave * set cursorline
     '';
   };
-  
+
+  # TODO: Make zsh more modular for other usernames or non apple devices
   programs.zsh = {
     enable = true;
     shellAliases = {
@@ -68,7 +66,7 @@
       ll = "eza -lah --icons";
       ls = "eza --color=auto";
       cat = "bat";
-      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; exec zsh";
+      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
       notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       projects = "cd ~/projects; ls";
       dev = "zellij -l dev";
@@ -114,18 +112,17 @@
   };
 
   programs.bun.enable = true;
+
   programs.go = {
     enable = true;
     goPath = ".go";
   };
   
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs;[
-    pkg-config
   
-    # Applications (might want to lock these behind options)
-    spotify
-    audacity
+  home.packages = with pkgs;[
+    # TODO: Remember what this is
+    pkg-config
   
     # Font stuff
     noto-fonts-cjk-sans
@@ -161,7 +158,6 @@
     lazydocker # docker
     nmap # scans network ip addresses
     ncspot # spotify
-    unrar
     awscli2
   ];
 

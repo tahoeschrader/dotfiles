@@ -17,13 +17,13 @@ fi
 
 ## TODO
 
-- SSH profiels (secrets?)
-- GIT profiles (secrets?)
-- Figure out how to get nix to ensure cargo installs `tpi` and `trunk` globally
-- Setup custom zellij templates for projects as I go and develop for them
-
-## Given up tasks for now
-
-- Adding my other computers
-- Moving other programs to home manager (Docker, LaTeX, Anki, Brave, etc.)
+- [ ] configure 'Home Manager Apps' folder to create in  `$home/アプリケーション` instead of `$home/Applications`
+- [ ] learn how to deal with "secrets"
+- [ ] configure SSH config profiles
+- [ ] configure GIT config profiles
+- [ ] declare nix to have cargo install `tpi` and `trunk` globally
+- [ ] continuously update custom zellij templates for projects as I go and develop for them
+- [ ] add on/off flags for modules
+- [ ] add turing pi configs
+- [ ] fix hardcoded naming dependences to work with mac and turing pi configs
 

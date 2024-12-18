@@ -2,7 +2,6 @@
   description = "Home Manager configuration of pooralaska";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -26,6 +25,8 @@
           };
           modules = [ ./modules ];
         };
+
+        # TODO: add turing pi machines
       };
     };
 }
