@@ -63,8 +63,6 @@
   
   programs.zsh = {
     enable = true;
-    dotDir = ".config/zsh";
-    history.path = "$ZDOTDIR/.zsh_history";
     shellAliases = {
       la = "eza -a --icons";
       ll = "eza -lah --icons";
