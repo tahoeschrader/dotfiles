@@ -3,10 +3,27 @@
   
   programs.wezterm = {
     enable = true;
+    extraConfig = ''
+      local config = {}
+      config.color_scheme = 'Gruvbox Dark (Gogh)'
+      config.font = wezterm.font 'FiraCode Nerd Font'
+      config.font = wezterm.font_with_fallback {
+        'Hack Nerd Font',
+        'Noto Sans CJK JP',
+      }
+      config.font_size = 15.0
+      config.front_end = 'WebGpu'
+
+      return config
+    '';
   };
   
   programs.helix = {
     enable = true;
+    defaultEditor = true;
+    settings = {
+      theme = "gruvbox";
+    };
     languages = {
       language = [
         {
