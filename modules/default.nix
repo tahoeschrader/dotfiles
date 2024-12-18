@@ -21,7 +21,7 @@
     };
     programs.home-manager.enable = true;
     nix = {
-      package = pkgs.nix; # Not sure why I need to add this
+      package = pkgs.nixVersions.latest; # declaritively set nix version so I don't need to update all the time
       settings = {
         experimental-features = [ "nix-command" "flakes" ];
       };

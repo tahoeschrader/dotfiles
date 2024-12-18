@@ -2,27 +2,8 @@
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
-  programs.alacritty = {
+  programs.wezterm = {
     enable = true;
-    settings = {
-      import = [ pkgs.alacritty-theme.gruvbox_material ];
-      mouse = { hide_when_typing = true; };
-
-      font = let fontname = "FiraCode Nerd Font"; in
-        {
-          normal = { family = fontname; style = "Bold"; };
-          bold = { family = fontname; style = "ExtraBold"; };
-          italic = { family = fontname; style = "ExtraLight"; };
-          size = 15;
-        };
-      window = {
-        # Need to figure out a better way for dimensions and placement of apps
-        dimensions = {columns = 230; lines = 64; };
-      };
-      cursor = {
-        style = {shape = "Beam"; };
-      };
-    };
   };
   
   programs.helix = {
@@ -94,13 +75,13 @@
       projects = "cd ~/projects; ls";
       rustdev = "zellij -l rust-dev";
       dev = "zellij -l dev";
-      alexandria = "cd ~/projects/alexandria; zellij-start alexandria alexandria";
-      backbone = "cd ~/projects/backbone; zellij-start backbone dev";
-      bunkbed = "cd ~/projects/bunkbed.tech; zellij-start bunkbed dev";
-      dotfiles = "cd ~/projects/dotfiles; zellij-start dotfiles dev";
+      alexandria = "cd ~/projects/alexandria; zellij-start alex alexandria";
+      backbone = "cd ~/projects/backbone; zellij-start back dev";
+      bunkbed = "cd ~/projects/bunkbed.tech; zellij-start bunk dev";
+      dotfiles = "cd ~/projects/dotfiles; zellij-start dot dev";
       practice = "cd ~/projects/practice; zellij-start practice dev";
       resume = "cd ~/projects/resume; zellij-start resume dev";
-      squadmaker = "cd ~/projects/squadmaker; zellij-start squadmaker dev";
+      squadmaker = "cd ~/projects/squadmaker; zellij-start squad dev";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
       # Added by Toolbox App
@@ -144,16 +125,11 @@
     # Applications (might want to lock these behind options)
     spotify
     audacity
-
-    # Applications (currently marked as broken)
-    # calibre
-    # rpi-imager
-    # anki
-    # discord
-    
+  
     # Font stuff
     noto-fonts-cjk-sans
-    (nerdfonts.override { fonts = [ "FiraCode" "Hack" ]; })
+    nerd-fonts.fira-code
+    nerd-fonts.hack
     
     # Programming languages, etc.
     nodejs_20
