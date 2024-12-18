@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, lib, config,  ... }: {
   # Allow unfree
   nixpkgs.config.allowUnfree = true;
 
@@ -73,19 +73,16 @@
       macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; exec zsh";
       notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       projects = "cd ~/projects; ls";
-      rustdev = "zellij -l rust-dev";
       dev = "zellij -l dev";
-      alexandria = "cd ~/projects/alexandria; zellij-start alex alexandria";
-      backbone = "cd ~/projects/backbone; zellij-start back dev";
-      bunkbed = "cd ~/projects/bunkbed.tech; zellij-start bunk dev";
-      dotfiles = "cd ~/projects/dotfiles; zellij-start dot dev";
-      practice = "cd ~/projects/practice; zellij-start practice dev";
-      resume = "cd ~/projects/resume; zellij-start resume dev";
-      squadmaker = "cd ~/projects/squadmaker; zellij-start squad dev";
+      alexandria = "cd ~/projects/alexandria; zellij -l alexandria";
+      backbone = "cd ~/projects/backbone; dev";
+      bunkbed = "cd ~/projects/bunkbed.tech; dev";
+      dotfiles = "cd ~/projects/dotfiles; dev";
+      practice = "cd ~/projects/practice; dev";
+      resume = "cd ~/projects/resume; dev";
+      squadmaker = "cd ~/projects/squadmaker; dev";
     };
     initExtra = lib.mkIf pkgs.stdenv.isDarwin ''
-      # Added by Toolbox App
-      export PATH="$PATH:/Users/pooralaska/Library/Application Support/JetBrains/Toolbox/scripts"
       export PATH="$PATH:$HOME/.config/zellij"
       export PATH="$PATH:$HOME/.config/zsh"
       export EDITOR="/Users/pooralaska/.nix-profile/bin/hx"
@@ -117,6 +114,12 @@
       }
     ];
   };
+
+  programs.bun.enable = true;
+  programs.go = {
+    enable = true;
+    goPath = ".go";
+  };
   
   fonts.fontconfig.enable = true;
   home.packages = with pkgs;[
@@ -133,9 +136,7 @@
     
     # Programming languages, etc.
     nodejs_20
-    bun # alternative javascript runtime written in rust
     (python3.withPackages (ps: with ps; [pip]))
-    go
     
     # Language servers - TODO: make dependent on helix enabale
     llvmPackages.lldb

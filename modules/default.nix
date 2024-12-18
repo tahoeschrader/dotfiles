@@ -5,15 +5,12 @@
   config = {
     home.stateVersion = "23.11";
     home.username = "pooralaska";
+    home.language.base = "ja_JP.UTF-8";
     home.homeDirectory =
       if pkgs.stdenv.isDarwin
       then "/Users/${config.home.username}"
       else "/home/${config.home.username}";
     home.file = {
-      ".config/zellij/zellij-start" = {
-        source = ../scripts/zellij_start.sh;
-        executable = true;
-      };
       ".config/zsh/alexandria-run" = {
         source = ../scripts/alexandria_run.sh;
         executable = true;
