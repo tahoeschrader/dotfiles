@@ -1,5 +1,11 @@
 { pkgs, lib,  ... }: {
   # TODO: put modules behind on/off flags based on device being used
+
+  programs.git = {
+    enable = true;
+    userEmail = "tahoeschrader@gmail.com";
+    userName = "Tahoe Schrader";  
+  };
   
   programs.wezterm = {
     enable = true;
