@@ -19,9 +19,6 @@ fi
 ## TODO
 
 - [ ] configure 'Home Manager Apps' folder to create in  `$home/アプリケーション` instead of `$home/Applications`
-- [ ] learn how to deal with "secrets"
-- [ ] configure SSH config profiles
-- [ ] configure GIT config profiles
 - [ ] declare nix to have cargo install `tpi` and `trunk` globally
 - [ ] continuously update custom zellij templates for projects as I go and develop for them
 - [ ] add on/off flags for modules

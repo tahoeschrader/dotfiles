@@ -6,6 +6,35 @@
     userEmail = "tahoeschrader@gmail.com";
     userName = "Tahoe Schrader";  
   };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "github.com" = {
+        identityFile = "~/.ssh/id_ed25519";
+          
+      };
+      turingpi = {
+        user = "tahoe";
+        identityFile = "~/.ssh/id_ed25519.tpi2";  
+      };
+      turingpi-root = {
+        hostname = "turingpi";
+        user = "root";
+        identityFile = "~/.ssh/id_ed25519.tpi2.root";  
+      };
+      raspberry = {
+        user = "raspberrypi";
+        identityFile = "~/.ssh/id_ed25519.rpi";  
+      };
+      raspberrypi-2 = {
+        user = "tahoe";
+        identityFile = "~/.ssh/id_ed25519.rpi-2";  
+      };
+      "*".extraOptions.UseKeychain = "yes";
+    };
+    addKeysToAgent = "yes";
+  };
   
   programs.wezterm = {
     enable = true;
