@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [./graphical.nix ./packages.nix ./rust.nix];
+  imports = [./graphical.nix ./projects.nix ./packages.nix ./rust.nix];
   home.stateVersion = "23.11";
   home.username = lib.mkDefault "pooralaska";
   home.homeDirectory =

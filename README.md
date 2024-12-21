@@ -24,7 +24,7 @@ fi
 
 ## TODO
 
-- [ ] add on/off flags for modules
-- [ ] add turing pi, PC, and jetson configs
-- [ ] fix hardcoded naming dependences to work with mac and turing pi configs
+- [ ] add turing pi config
+- [ ] add windows WSL config
+- [ ] add nvidia jetson configs
 

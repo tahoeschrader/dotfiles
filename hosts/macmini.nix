@@ -9,13 +9,14 @@
         executable = true;
       };
     };
+    shellAliases = {
+      notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
+      macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
+    };
+    sessionPath = [
+      "/Library/TeX/texbin"
+    ];
   };
-  programs.zsh.shellAliases = {
-    notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
-    macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
-  };
-  programs.zsh.initExtra = ''
-    export PATH="/Library/TeX/texbin:$PATH"
-  '';
   dotfiles.graphical = true;
+  dotfiles.projects = true;
 }

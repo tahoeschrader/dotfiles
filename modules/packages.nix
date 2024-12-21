@@ -1,32 +1,46 @@
 {pkgs, ...}: {
-  # TODO: put modules behind on/off flags based on device being used
   # TODO: fix any device hardcoded information to be more modular, zsh for example
-  # TODO: move initExtra from zsh to home.shellAliases
-  # TODO: move environment variables from zsh to home.sessionVariables
-  # TODO: same for path and home.sessionPath
   config = {
     fonts.fontconfig.enable = true;
-    home.packages = with pkgs; [
-      # System, fonts, etc.
-      pkg-config
-      noto-fonts-cjk-sans
-      nerd-fonts.fira-code
-      nerd-fonts.hack
+    home = {
+      packages = with pkgs; [
+        # System, fonts, etc.
+        pkg-config
+        noto-fonts-cjk-sans
+        nerd-fonts.fira-code
+        nerd-fonts.hack
 
-      # Programming languages, etc.
-      postgresql
-      nodejs_20
-      (python3.withPackages (ps: with ps; [pip]))
+        # Programming languages, etc.
+        postgresql
+        nodejs_20
+        (python3.withPackages (ps: with ps; [pip]))
 
-      # Misc. TUIs and CLIs
-      eza # ls
-      bat # cat
-      k9s # kubernetes
-      lazygit # git
-      lazydocker # docker
-      nmap # scans network ip addresses
-      awscli2
-    ];
+        # Misc. TUIs and CLIs
+        eza # ls
+        bat # cat
+        k9s # kubernetes
+        lazygit # git
+        lazydocker # docker
+        nmap # scans network ip addresses
+        awscli2
+      ];
+      shellAliases = {
+        la = "eza -a --icons";
+        ll = "eza -lah --icons";
+        ls = "eza --color=auto";
+        cat = "bat";
+        dev = "zellij -l dev";
+      };
+      sessionPath = [
+        "$HOME/.config/zellij"
+        "$HOME/.config/zsh"
+        "$HOME/.cargo/bin"
+      ];
+      sessionVariables = {
+        VISUAL = "hx";
+        PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+      };
+    };
     programs = {
       git = {
         enable = true;
@@ -130,29 +144,6 @@
       };
       zsh = {
         enable = true;
-        shellAliases = {
-          la = "eza -a --icons";
-          ll = "eza -lah --icons";
-          ls = "eza --color=auto";
-          cat = "bat";
-          dev = "zellij -l dev";
-          projects = "cd ~/projects; ls";
-          alexandria = "cd ~/projects/alexandria; zellij -l alexandria";
-          backbone = "cd ~/projects/backbone; dev";
-          bunkbed = "cd ~/projects/bunkbed.tech; dev";
-          dotfiles = "cd ~/projects/dotfiles; dev";
-          practice = "cd ~/projects/practice; dev";
-          resume = "cd ~/projects/resume; dev";
-          squadmaker = "cd ~/projects/squadmaker; dev";
-        };
-        initExtra = ''
-          export PATH="$PATH:$HOME/.config/zellij"
-          export PATH="$PATH:$HOME/.config/zsh"
-          export PATH="$PATH:$HOME/.cargo/bin"
-          export EDITOR="$HOME/.nix-profile/bin/hx"
-          export VISUAL="$HOME/.nix-profile/bin/hx"
-          export PKG_CONFIG_PATH=${pkgs.openssl.dev}/lib/pkgconfig
-        '';
         plugins = [
           {
             # will source zsh-autosuggestions.plugin.zsh
