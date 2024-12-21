@@ -1,5 +1,4 @@
 {pkgs, ...}: {
-  # TODO: fix any device hardcoded information to be more modular, zsh for example
   config = {
     fonts.fontconfig.enable = true;
     home = {
