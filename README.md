@@ -18,10 +18,7 @@ fi
 
 ## TODO
 
-- [ ] configure 'Home Manager Apps' folder to create in  `$home/アプリケーション` instead of `$home/Applications`
-- [ ] declare nix to have cargo install `tpi` and `trunk` globally
-- [ ] continuously update custom zellij templates for projects as I go and develop for them
 - [ ] add on/off flags for modules
-- [ ] add turing pi configs
+- [ ] add turing pi, PC, and jetson configs
 - [ ] fix hardcoded naming dependences to work with mac and turing pi configs
 
