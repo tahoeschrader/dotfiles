@@ -1,8 +1,8 @@
-{ 
+{
   home = {
     language = {
       base = "ja_JP.UTF-8";
-    };  
+    };
     file = {
       ".config/zsh/alexandria-run" = {
         source = ../scripts/alexandria_run.sh;

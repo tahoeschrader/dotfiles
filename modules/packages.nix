@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   # TODO: put modules behind on/off flags based on device being used
   # TODO: fix any device hardcoded information to be more modular, zsh for example
   # TODO: move initExtra from zsh to home.shellAliases
@@ -6,18 +6,18 @@
   # TODO: same for path and home.sessionPath
   config = {
     fonts.fontconfig.enable = true;
-    home.packages = with pkgs;[
-      # System, fonts, etc. 
+    home.packages = with pkgs; [
+      # System, fonts, etc.
       pkg-config
       noto-fonts-cjk-sans
       nerd-fonts.fira-code
       nerd-fonts.hack
-    
+
       # Programming languages, etc.
       postgresql
       nodejs_20
       (python3.withPackages (ps: with ps; [pip]))
-    
+
       # Misc. TUIs and CLIs
       eza # ls
       bat # cat
@@ -31,35 +31,35 @@
       git = {
         enable = true;
         userEmail = "tahoeschrader@gmail.com";
-        userName = "Tahoe Schrader";  
+        userName = "Tahoe Schrader";
       };
       ssh = {
         enable = true;
         matchBlocks = {
           "github.com" = {
-            identityFile = "~/.ssh/id_ed25519";       
+            identityFile = "~/.ssh/id_ed25519";
           };
           turingpi = {
             user = "tahoe";
-            identityFile = "~/.ssh/id_ed25519.tpi2";  
+            identityFile = "~/.ssh/id_ed25519.tpi2";
           };
           turingpi-root = {
             hostname = "turingpi";
             user = "root";
-            identityFile = "~/.ssh/id_ed25519.tpi2.root";  
+            identityFile = "~/.ssh/id_ed25519.tpi2.root";
           };
           raspberry = {
             user = "raspberrypi";
-            identityFile = "~/.ssh/id_ed25519.rpi";  
+            identityFile = "~/.ssh/id_ed25519.rpi";
           };
           raspberrypi-2 = {
             user = "tahoe";
-            identityFile = "~/.ssh/id_ed25519.rpi-2";  
+            identityFile = "~/.ssh/id_ed25519.rpi-2";
           };
           "*".extraOptions.UseKeychain = "yes";
         };
         addKeysToAgent = "yes";
-      };  
+      };
       helix = {
         enable = true;
         defaultEditor = true;
@@ -74,7 +74,7 @@
             }
           ];
         };
-        extraPackages = with pkgs;[        
+        extraPackages = with pkgs; [
           llvmPackages.lldb
           delve
           texlab
@@ -91,12 +91,12 @@
           vscode-langservers-extracted
           dockerfile-language-server-nodejs
         ];
-      };  
+      };
       nnn = {
         enable = true;
-        package = pkgs.nnn.override { withNerdIcons = true; };
+        package = pkgs.nnn.override {withNerdIcons = true;};
         plugins = {};
-      };  
+      };
       starship = {
         enable = true;
         settings = {
@@ -110,10 +110,10 @@
           layout_dir = "${./layouts}";
           window.option_as_alt = "Both";
         };
-      };  
+      };
       vim = {
         enable = true;
-        settings = { ignorecase = true; };
+        settings = {ignorecase = true;};
         extraConfig = ''
           set mouse=a
           set nocompatible
@@ -183,6 +183,6 @@
         enable = true;
         goPath = ".go";
       };
-    };  
+    };
   };
 }

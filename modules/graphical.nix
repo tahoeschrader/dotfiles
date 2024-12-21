@@ -1,9 +1,13 @@
-{ lib, config, ...}: {
+{
+  lib,
+  config,
+  ...
+}: {
   options.dotfiles = {
     graphical = lib.mkEnableOption "Host has graphical user interface.";
   };
   config = lib.mkIf config.dotfiles.graphical {
-    programs = { 
+    programs = {
       wezterm = {
         enable = lib.mkDefault true;
         extraConfig = ''
@@ -19,7 +23,7 @@
           config.front_end = 'WebGpu'
           return config
         '';
-      };  
+      };
     };
   };
 }

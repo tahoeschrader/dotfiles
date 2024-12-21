@@ -6,6 +6,12 @@ Heavily borrowing ideas/formatting from my brother:
 
 - https://github.com/schradert/dotfiles
 
+## Tidy up repo
+
+```text
+nix fmt .
+```
+
 ## After updating MacOS
 
 Add the following to the top of `/etc/zshrc` with `sudo \vim /etc/zshrc`.

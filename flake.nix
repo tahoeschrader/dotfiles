@@ -11,25 +11,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs, home-manager, fenix, ... }:
-    {          
-       homeConfigurations = {
-        # Run with `home-manager switch --flake .#macmini`
-        macmini = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            overlays = [ fenix.overlays.default ];
-          };
-          modules = [ ./hosts/macmini.nix ./modules ];
+  outputs = {
+    nixpkgs,
+    home-manager,
+    fenix,
+    ...
+  }: {
+    homeConfigurations = {
+      # Run with `home-manager switch --flake .#macmini`
+      macmini = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [fenix.overlays.default];
         };
-        # TODO: add rest of machines; right now turingpi is a dummy 
-        turingpi = home-manager.lib.homeManagerConfiguration {
-          pkgs = import nixpkgs {
-            system = "aarch64-darwin";
-            overlays = [ fenix.overlays.default ];
-          };
-          modules = [ ./hosts/turingpi.nix ./modules ];
+        modules = [./hosts/macmini.nix ./modules];
+      };
+      # TODO: add rest of machines; right now turingpi is a dummy
+      turingpi = home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+          overlays = [fenix.overlays.default];
         };
+        modules = [./hosts/turingpi.nix ./modules];
       };
     };
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.alejandra;
+  };
 }
