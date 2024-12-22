@@ -16,6 +16,7 @@
       practice = "cd ~/projects/practice; dev";
       resume = "cd ~/projects/resume; dev";
       squadmaker = "cd ~/projects/squadmaker; dev";
+      fushigi = "cd ~/projects/fushigi-bunpo; dev";
     };
   };
 }
