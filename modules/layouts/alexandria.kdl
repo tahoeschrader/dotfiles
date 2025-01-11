@@ -16,38 +16,30 @@ layout {
             }
             pane size="80%" name="edit" focus=true {
                 command "hx"
-                args "src/app.html"
-            }
-        }
-    }
-    tab name="test"{
-        pane split_direction="vertical" {
-            pane name="readme" {
-                command "bat"
                 args "README.md"
             }
-            pane split_direction="horizontal" {
-                cargo { args "check"; }
-                cargo { args "run"; }
-                cargo { args "test"; }
-            }
         }
     }
-    tab name="build" {
-        pane split_direction="vertical" {
-            pane name="postgres" {
-                command "docker"
-                args "compose" "up" "--build"
-                start_suspended true
-            }
+    tab name="backend: build & test"{
+        pane split_direction="vertical" {          
             pane split_direction="horizontal" {
+                pane name="containers" {
+                    command "bat"
+                    args "docker-compose.yaml"
+                }
+                pane name="postgres" {
+                    command "docker"
+                    args "compose" "up" "--build"
+                    start_suspended true
+                }
                 pane name="docker" {
                     command "lazydocker"
                 }
-                pane name="set DATABASE_URL" {
-                    command "alexandria-run"
-                    start_suspended true
-                }
+            }
+            pane split_direction="horizontal" {
+                cargo { args "check" "--manifest-path" "backend/Cargo.toml"; }
+                setdb { args "cargo" "run" "--manifest-path" "backend/Cargo.toml"; }
+                setdb { args "cargo" "test" "--manifest-path" "backend/Cargo.toml"; }
             }
         }
     }
@@ -57,14 +49,14 @@ layout {
         }
     }
     tab name="terminal" {
-        pane name="etc."
+        pane name="commands"
     }
     pane_template name="cargo" {
         command "cargo"
         start_suspended true
     }
-    pane_template name="bunx" {
-        command "bunx"
+    pane_template name="setdb" {
+        command "DATABASE_URL=postgresql://tester:password@127.0.0.1:5432/testing"
         start_suspended true
     }
 }
