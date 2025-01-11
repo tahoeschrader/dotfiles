@@ -23,11 +23,11 @@ layout {
     tab name="backend: build & test"{
         pane split_direction="vertical" {          
             pane split_direction="horizontal" {
-                pane name="containers" {
+                pane name="definitions" {
                     command "bat"
                     args "docker-compose.yaml"
                 }
-                pane name="postgres" {
+                pane name="build containers" {
                     command "docker"
                     args "compose" "up" "--build"
                     start_suspended true
@@ -37,9 +37,9 @@ layout {
                 }
             }
             pane split_direction="horizontal" {
-                cargo { args "check" "--manifest-path" "backend/Cargo.toml"; }
-                setdb { args "cargo" "run" "--manifest-path" "backend/Cargo.toml"; }
-                setdb { args "cargo" "test" "--manifest-path" "backend/Cargo.toml"; }
+                cargo name="backend check" { args "check" "--manifest-path" "backend/Cargo.toml"; }
+                setdb name="backend run" { args "run" "backend/Cargo.toml"; }
+                setdb name="backend test" { args "test" "backend/Cargo.toml"; }
             }
         }
     }
@@ -56,7 +56,7 @@ layout {
         start_suspended true
     }
     pane_template name="setdb" {
-        command "DATABASE_URL=postgresql://tester:password@127.0.0.1:5432/testing"
+        command "alexandria-run"
         start_suspended true
     }
 }
