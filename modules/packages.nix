@@ -8,6 +8,9 @@
         noto-fonts-cjk-sans
         nerd-fonts.fira-code
         nerd-fonts.hack
+        sops
+        age
+        ssh-to-age
 
         # Programming languages, etc.
         postgresql
