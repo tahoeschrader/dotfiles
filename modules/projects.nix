@@ -13,7 +13,6 @@
       backbone = "cd ~/projects/backbone; dev";
       bunkbed = "cd ~/projects/bunkbed.tech; dev";
       dotfiles = "cd ~/projects/dotfiles; dev";
-      practice = "cd ~/projects/practice; dev";
       resume = "cd ~/projects/resume; dev";
       squadmaker = "cd ~/projects/squadmaker; dev";
       fushigi = "cd ~/projects/fushigi-bunpo; dev";

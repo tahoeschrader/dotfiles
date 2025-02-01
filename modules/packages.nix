@@ -11,7 +11,8 @@
         sops
         age
         ssh-to-age
-
+        audacity
+        
         # Programming languages, etc.
         postgresql
         nodejs_20
