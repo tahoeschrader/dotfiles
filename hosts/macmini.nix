@@ -10,7 +10,6 @@
       };
     };
     shellAliases = {
-      notes = "cd ~/Library/Mobile\\ Documents/iCloud\\~md\\~obsidian/Documents/Personal; ls";
       macmini = "home-manager switch --flake ~/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
     };
     sessionPath = [

@@ -21,6 +21,9 @@
           config.font_size = 15.0
           config.max_fps = 144;
           config.front_end = 'WebGpu'
+          config.cursor_blink_rate = 100
+          config.cursor_blink_ease_in = "Constant"
+          config.cursor_blink_ease_out = "Constant"
           return config
         '';
       };
