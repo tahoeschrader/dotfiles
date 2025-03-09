@@ -16,6 +16,7 @@
       resume = "cd ~/projects/resume; dev";
       squadmaker = "cd ~/projects/squadmaker; dev";
       fushigi = "cd ~/projects/fushigi-bunpo; dev";
+      pysource = "source .venv/bin/activate";
     };
   };
 }

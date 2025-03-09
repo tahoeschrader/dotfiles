@@ -17,6 +17,8 @@
         postgresql
         nodejs_20
         (python3.withPackages (ps: with ps; [pip]))
+        jdk
+        gradle
 
         # Misc. TUIs and CLIs
         eza # ls
@@ -82,6 +84,16 @@
         defaultEditor = true;
         settings = {
           theme = "gruvbox";
+          editor.statusline = {
+            right = [
+              "diagnostics" 
+              "selections" 
+              "position" 
+              "file-encoding" 
+              "file-line-ending" 
+              "file-type"
+              "total-line-numbers"];
+          };
         };
         languages = {
           language = [
@@ -101,6 +113,7 @@
           nil
           marksman
           gopls
+          jdt-language-server
           ansible-language-server
           terraform-ls
           nodePackages_latest.bash-language-server
