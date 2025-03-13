@@ -19,6 +19,8 @@
         (python3.withPackages (ps: with ps; [pip]))
         jdk
         gradle
+        scala
+        sbt
 
         # Misc. TUIs and CLIs
         eza # ls
