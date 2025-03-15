@@ -106,13 +106,14 @@
           ];
         };
         extraPackages = with pkgs; [
-          llvmPackages.lldb
           delve
           texlab
           yaml-language-server
           taplo
           pyright # python lsp
           nil
+          metals
+          lldb
           marksman
           gopls
           jdt-language-server
