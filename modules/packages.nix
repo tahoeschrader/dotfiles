@@ -11,7 +11,6 @@
         sops
         age
         ssh-to-age
-        audacity
         
         # Programming languages, etc.
         postgresql
@@ -21,6 +20,7 @@
         gradle
         scala
         sbt
+        uv
 
         # Misc. TUIs and CLIs
         eza # ls
@@ -29,7 +29,9 @@
         lazygit # git
         lazydocker # docker
         nmap # scans network ip addresses
-        awscli2
+        awscli2 # checking your aws stuff
+        yazi # file explorer
+        audacity # audio file editor
       ];
       shellAliases = {
         la = "eza -a --icons";
