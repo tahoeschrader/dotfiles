@@ -8,14 +8,14 @@
   };
   config = lib.mkIf config.dotfiles.projects {
     home.shellAliases = {
-      projects = "cd ~/projects; ls";
-      alexandria = "cd ~/projects/alexandria; zellij -l alexandria";
-      backbone = "cd ~/projects/backbone; dev";
-      bunkbed = "cd ~/projects/bunkbed.tech; dev";
-      dotfiles = "cd ~/projects/dotfiles; dev";
-      resume = "cd ~/projects/resume; dev";
-      squadmaker = "cd ~/projects/squadmaker; dev";
-      fushigi = "cd ~/projects/fushigi-bunpo; dev";
+      projects = "cd ~/Documents/projects; ls";
+      alexandria = "cd ~/Documents/projects/alexandria; zellij -l alexandria";
+      backbone = "cd ~/Documents/projects/backbone; dev";
+      bunkbed = "cd ~/Documents/projects/bunkbed.tech; dev";
+      dotfiles = "cd ~/Documents/projects/dotfiles; dev";
+      resume = "cd ~/Documents/projects/resume; dev";
+      squadmaker = "cd ~/Documents/projects/squadmaker; dev";
+      fushigi = "cd ~/Documents/projects/fushigi-bunpo; dev";
       pysource = "source .venv/bin/activate";
     };
   };

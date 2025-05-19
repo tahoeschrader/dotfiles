@@ -32,6 +32,7 @@
         awscli2 # checking your aws stuff
         yazi # file explorer
         audacity # audio file editor
+        ghostscript # pdf compression
       ];
       shellAliases = {
         la = "eza -a --icons";
@@ -144,6 +145,7 @@
           theme = "gruvbox";
           layout_dir = "${./layouts}";
           window.option_as_alt = "Both";
+          generate_auto_start = false;
         };
       };
       vim = {
