@@ -11,6 +11,7 @@
         sops
         age
         ssh-to-age
+        tree
         
         # Programming languages, etc.
         postgresql
