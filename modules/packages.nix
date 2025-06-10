@@ -22,6 +22,7 @@
         scala
         sbt
         uv
+        texlive.combined.scheme-full
 
         # Misc. TUIs and CLIs
         eza # ls
