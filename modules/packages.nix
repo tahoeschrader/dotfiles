@@ -41,10 +41,8 @@
         ll = "eza -lah --icons";
         ls = "eza --color=auto";
         cat = "bat";
-        dev = "zellij -l dev";
       };
       sessionPath = [
-        "$HOME/.config/zellij"
         "$HOME/.config/zsh"
         "$HOME/.cargo/bin"
       ];
@@ -90,16 +88,23 @@
         enable = true;
         defaultEditor = true;
         settings = {
-          theme = "gruvbox";
-          editor.statusline = {
-            right = [
-              "diagnostics" 
-              "selections" 
-              "position" 
-              "file-encoding" 
-              "file-line-ending" 
-              "file-type"
-              "total-line-numbers"];
+          theme = "base16_transparent";
+          editor = {
+            file-picker = {
+              hidden = false;
+              # ignore = false;
+              # include = [ ".*" ];
+            };
+            statusline = {
+              right = [
+                "diagnostics" 
+                "selections" 
+                "position" 
+                "file-encoding" 
+                "file-line-ending" 
+                "file-type"
+                "total-line-numbers"];
+            };
           };
         };
         languages = {
@@ -111,6 +116,7 @@
           ];
         };
         extraPackages = with pkgs; [
+          swift-format
           delve
           texlab
           yaml-language-server
@@ -128,26 +134,14 @@
           nodePackages_latest.typescript-language-server
           vscode-langservers-extracted
           dockerfile-language-server-nodejs
+          bibtex-tidy
+          docker-compose-language-service
         ];
-      };
-      nnn = {
-        enable = true;
-        package = pkgs.nnn.override {withNerdIcons = true;};
-        plugins = {};
       };
       starship = {
         enable = true;
         settings = {
           battery.disabled = true; # don't use battery since I'm not on laptops
-        };
-      };
-      zellij = {
-        enable = true;
-        settings = {
-          theme = "gruvbox";
-          layout_dir = "${./layouts}";
-          window.option_as_alt = "Both";
-          generate_auto_start = false;
         };
       };
       vim = {

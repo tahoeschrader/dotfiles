@@ -12,9 +12,6 @@
     shellAliases = {
       macmini = "home-manager switch --flake ~/Documents/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
     };
-    sessionPath = [
-      "/Library/TeX/texbin"
-    ];
   };
   dotfiles.graphical = true;
   dotfiles.projects = true;

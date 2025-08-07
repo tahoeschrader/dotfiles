@@ -10,6 +10,7 @@
     programs = {
       wezterm = {
         enable = lib.mkDefault true;
+        enableZshIntegration = true;
         extraConfig = ''
           local config = {}
           config.color_scheme = 'Gruvbox Dark (Gogh)'
