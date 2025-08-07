@@ -12,7 +12,7 @@
         age
         ssh-to-age
         tree
-        
+
         # Programming languages, etc.
         postgresql
         nodejs_20
@@ -97,13 +97,14 @@
             };
             statusline = {
               right = [
-                "diagnostics" 
-                "selections" 
-                "position" 
-                "file-encoding" 
-                "file-line-ending" 
+                "diagnostics"
+                "selections"
+                "position"
+                "file-encoding"
+                "file-line-ending"
                 "file-type"
-                "total-line-numbers"];
+                "total-line-numbers"
+              ];
             };
           };
         };
