@@ -1,10 +1,19 @@
 {pkgs, ...}: {
+  imports = [
+    {
+      nix.settings = {
+        extra-substituters = ["https://devenv.cachix.org"];
+        extra-trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
+      };
+      home.packages = [pkgs.devenv];
+    }
+  ];
   config = {
     fonts.fontconfig.enable = true;
     home = {
       packages = with pkgs; [
         # System, fonts, etc.
-        pkg-config
+        pkg-config 
         noto-fonts-cjk-sans
         nerd-fonts.fira-code
         nerd-fonts.hack
@@ -193,6 +202,10 @@
       go = {
         enable = true;
         goPath = ".go";
+      };
+      direnv = {
+        enable = true;
+        nix-direnv.enable = true;
       };
     };
   };
