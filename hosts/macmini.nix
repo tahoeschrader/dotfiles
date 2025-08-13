@@ -1,4 +1,5 @@
 {
+  # TODO: Could eventually convert this to a nix-darwin config
   home = {
     language = {
       base = "ja_JP.UTF-8";
@@ -10,9 +11,13 @@
       };
     };
     shellAliases = {
-      macmini = "home-manager switch --flake ~/Documents/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
+      # macmini = "home-manager switch --flake ~/Documents/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
+      macmini = "sudo darwin-rebuild switch --flake ~/Documents/projects/dotfiles#macmini; echo Remember to close and reopen shell!\n";
+      checkhooks = "pre-commit run --hook-stage manual --all-files";
     };
   };
   dotfiles.graphical = true;
   dotfiles.projects = true;
+  programs.aerospace.enable = true;
+  programs.aerospace.launchd.enable = true;
 }
