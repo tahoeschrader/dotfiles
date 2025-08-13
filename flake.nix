@@ -21,7 +21,7 @@
     fenix,
     nix-darwin,
     ...
-  }:{
+  }: {
     # Mac config with nix-darwin + home-manager
     darwinConfigurations.macmini = nix-darwin.lib.darwinSystem {
       system = "aarch64-darwin";
@@ -30,15 +30,15 @@
         ({pkgs, ...}: {
           nix.package = pkgs.nixVersions.latest;
           system.stateVersion = 6;
-          nixpkgs.overlays = [ fenix.overlays.default ];
+          nixpkgs.overlays = [fenix.overlays.default];
           users.users.pooralaska = {
             home = "/Users/pooralaska";
           };
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.pooralaska = {
-            imports = [ ./hosts/macmini.nix ./modules ];
-           };
+            imports = [./hosts/macmini.nix ./modules];
+          };
         })
       ];
     };
@@ -47,7 +47,7 @@
     homeConfigurations.turingpi = home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         system = "aarch64-linux";
-        overlays = [ fenix.overlays.default ];
+        overlays = [fenix.overlays.default];
       };
       modules = [
         ./hosts/turingpi.nix

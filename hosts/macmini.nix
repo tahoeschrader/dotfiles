@@ -18,6 +18,8 @@
   };
   dotfiles.graphical = true;
   dotfiles.projects = true;
-  programs.aerospace.enable = true;
-  programs.aerospace.launchd.enable = true;
+  programs.aerospace = {
+    enable = true;
+    launchd.enable = true;
+  };
 }
