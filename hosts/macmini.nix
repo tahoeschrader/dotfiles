@@ -1,5 +1,4 @@
 {
-  # TODO: Could eventually convert this to a nix-darwin config
   home = {
     language = {
       base = "ja_JP.UTF-8";
@@ -18,8 +17,4 @@
   };
   dotfiles.graphical = true;
   dotfiles.projects = true;
-  programs.aerospace = {
-    enable = true;
-    launchd.enable = true;
-  };
 }

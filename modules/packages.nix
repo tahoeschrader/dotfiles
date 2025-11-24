@@ -1,4 +1,13 @@
 {pkgs, ...}: {
+  imports = [
+    {
+      nix.settings = {
+        extra-substituters = ["https://devenv.cachix.org"];
+        extra-trusted-public-keys = ["devenv.cachix.org-1:w1cLUi8dv3hnoSPGAuibQv+f9TZLr6cv/Hm9XgU50cw="];
+      };
+      home.packages = [pkgs.devenv];
+    }
+  ];
   config = {
     fonts.fontconfig.enable = true;
     home = {
@@ -36,6 +45,7 @@
         yazi # file explorer
         audacity # audio file editor
         ghostscript # pdf compression
+        aria2 # download utility
       ];
       shellAliases = {
         la = "eza -a --icons";
@@ -81,6 +91,11 @@
             user = "tahoe";
             identityFile = "~/.ssh/id_ed25519.rpi-2";
           };
+          fushigi-vultr = {
+            hostname = "167.179.90.92";
+            user = "root";
+            identityFile = "~/.ssh/id_ed25519.fushigi-vultr";
+          };
           "*".extraOptions.UseKeychain = "yes";
         };
         addKeysToAgent = "yes";
@@ -93,8 +108,6 @@
           editor = {
             file-picker = {
               hidden = false;
-              # ignore = false;
-              # include = [ ".*" ];
             };
             statusline = {
               right = [
@@ -152,7 +165,6 @@
         extraConfig = ''
           set mouse=a
           set nocompatible
-          set mouse=a
           syntax on
           set number
           set laststatus=2
