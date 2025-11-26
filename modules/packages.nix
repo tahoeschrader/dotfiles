@@ -46,6 +46,9 @@
         audacity # audio file editor
         ghostscript # pdf compression
         aria2 # download utility
+        kubectl
+        talosctl
+        fluxcd
       ];
       shellAliases = {
         la = "eza -a --icons";
@@ -56,6 +59,7 @@
       sessionPath = [
         "$HOME/.config/zsh"
         "$HOME/.cargo/bin"
+        "$HOME/Library/Application\\ Support/JetBrains/Toolbox/scripts"
       ];
       sessionVariables = {
         VISUAL = "hx";
@@ -73,28 +77,34 @@
         matchBlocks = {
           "github.com" = {
             identityFile = "~/.ssh/id_ed25519";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           turingpi = {
             user = "tahoe";
             identityFile = "~/.ssh/id_ed25519.tpi2";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           turingpi-root = {
             hostname = "turingpi";
             user = "root";
             identityFile = "~/.ssh/id_ed25519.tpi2.root";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           raspberry = {
             user = "raspberrypi";
             identityFile = "~/.ssh/id_ed25519.rpi";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           raspberrypi-2 = {
             user = "tahoe";
             identityFile = "~/.ssh/id_ed25519.rpi-2";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           fushigi-vultr = {
             hostname = "167.179.90.92";
             user = "root";
             identityFile = "~/.ssh/id_ed25519.fushigi-vultr";
+            extraOptions = { IdentitiesOnly = "yes"; };
           };
           "*".extraOptions.UseKeychain = "yes";
         };
@@ -157,6 +167,7 @@
         enable = true;
         settings = {
           battery.disabled = true; # don't use battery since I'm not on laptops
+          kubernetes.disabled = false;
         };
       };
       vim = {
@@ -177,28 +188,9 @@
       };
       zsh = {
         enable = true;
-        plugins = [
-          {
-            # will source zsh-autosuggestions.plugin.zsh
-            name = "zsh-autosuggestions";
-            src = pkgs.fetchFromGitHub {
-              owner = "zsh-users";
-              repo = "zsh-autosuggestions";
-              rev = "v0.7.0";
-              sha256 = "KLUYpUu4DHRumQZ3w59m9aTW6TBKMCXl2UcKi4uMd7w=";
-            };
-          }
-          {
-            # will source zsh-syntax-highlighting.plugin.zsh
-            name = "zsh-syntax-highlighting";
-            src = pkgs.fetchFromGitHub {
-              owner = "zsh-users";
-              repo = "zsh-syntax-highlighting";
-              rev = "v0.6.0";
-              sha256 = "0zmq66dzasmr5pwribyh4kbkk23jxbpdw4rjxx0i7dx8jjp2lzl4";
-            };
-          }
-        ];
+        autosuggestion.enable = true;
+        enableCompletion = true;
+        syntaxHighlighting.enable = true;
       };
       bun = {
         enable = true;
