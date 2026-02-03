@@ -85,7 +85,7 @@
 
         includes = [
           {
-            condition = "gitdir:~/Documents/projects/quera/";
+            condition = "gitdir:/Users/pooralaska/Documents/projects/quera/";
             contents = {
               user = {
                 name = "Tahoe Schrader";
