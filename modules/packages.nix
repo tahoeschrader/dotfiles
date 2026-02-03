@@ -48,6 +48,10 @@
         kubectl
         talosctl
         fluxcd
+        jfrog-cli
+        minicom
+        yq-go
+        jsonnet
       ];
       shellAliases = {
         la = "eza -a --icons";
